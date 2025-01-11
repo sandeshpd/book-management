@@ -1,0 +1,4 @@
+# Configuration files
+/.venv
+/backend/backend/__pycache__
+/backend/bookstore_backend/__pycache__
