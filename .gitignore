@@ -1,4 +1,6 @@
-# Configuration files
+# Virtual Environment
 /.venv
+
+# Compilation files
 /backend/backend/__pycache__
 /backend/bookstore_backend/__pycache__
