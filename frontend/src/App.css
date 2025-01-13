@@ -63,6 +63,22 @@ body {
   border: none;
 }
 
+.input-group {
+  display: inline-grid;
+}
+
+.bookdata-textfield {
+  height: auto;
+  border-radius: 50%;
+}
+
+/* .bookdata-textfield:nth-child(2) {
+  width: 50%;
+}
+.bookdata-textfield:nth-child(3) {
+  width: 50%;
+} */
+
 .material-symbols-rounded {
   font-size: 2rem;
   color: rgb(226, 96, 96);
