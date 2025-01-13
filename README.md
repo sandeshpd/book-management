@@ -4,10 +4,10 @@ This is the simple Book Management Web app made with React, Django, Django REST 
 
 Following are the functionalities this web app currently offers:
 * Adding Books
+* Deleting Books
 
 Following are the features that are currently in development and will come in action soon:
 * Editing Book data
-* Deleting Books
 * Searching Books
 * Filtering Books on the basis of language, genre
 * Improved User Interface
