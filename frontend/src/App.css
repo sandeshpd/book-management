@@ -1,5 +1,24 @@
+/* Root elements start */
+:root {
+  --md-outlined-text-field-container-shape: 2em;
+  --md-outlined-text-field-container-color: #ddd;
+  --md-outlined-text-field-focus-outline-color: #000;
+  --md-outlined-text-field-focus-label-text-color: #000;
+  --md-outlined-text-field-outline-width: 2px;
+  --md-outlined-text-field-focus-outline-width: 2px;
+  --md-outlined-text-field-hover-outline-width: 2px;
+  --md-filled-button-container-color: #426083;
+  --container-background-color: hsla(207, 40%, 43%, 0.800);
+  --md-icons-hover-color: hsla(207, 39%, 52%, 0.8);
+}
+
+/* Root elemts end */
+
 * {
   font-family: 'Roboto', serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
 .App {
@@ -41,46 +60,43 @@
   }
 }
 
-body {
-  height: 100vh;
-  width: 100%;
+/* Google Material Design starts */
+md-outlined-text-field {
+  height: auto;
+  margin: 1.2rem 0;
 }
 
+/* Google Material Design ends */
+
+
+/* Custom styling starts */
 .container {
+  height: 100%;
+  width: 100%;
   margin-top: 2rem;
+  background-size: cover;
+  background-color: hsla(207, 40%, 43%, 0.356);
+  border-radius: 30px;
 }
 
-.bg-card-header {
-  background-color: aquamarine;
+.submit-btn {
+  width: 8rem;
+  height: 3rem;
+  margin-bottom: 2em;
+  font-size: large;
 }
 
-.deleteItem {
-  float: right;
+.view-collection-btn {
+  width: 10rem;
+  height: 3rem;
+  margin-bottom: 2em;
+  font-size: large;
+  padding: 1rem;
 }
 
-.deleteBtn {
-  background-color: inherit;
-  border: none;
-}
 
 .input-group {
   display: inline-grid;
 }
 
-.bookdata-textfield {
-  height: auto;
-  border-radius: 50%;
-}
-
-/* .bookdata-textfield:nth-child(2) {
-  width: 50%;
-}
-.bookdata-textfield:nth-child(3) {
-  width: 50%;
-} */
-
-.material-symbols-rounded {
-  font-size: 2rem;
-  color: rgb(226, 96, 96);
-  cursor: pointer;
-}
+/* Custom styling ends */
