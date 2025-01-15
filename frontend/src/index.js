@@ -5,6 +5,7 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import '@material/web/textfield/outlined-text-field'
+import '@material/web/button/filled-button'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
