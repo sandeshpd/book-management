@@ -1,124 +1,114 @@
 // import logo from './logo.svg';
 import './App.css';
-import React from 'react';
+import './components/List/List.css';
+import React, { useState } from 'react';
 import axios from 'axios';
-import BookList from './components/List';
-import { Routes, Route, Navigate } from 'react-router-dom';
+import BookList from './components/List/List';
+import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
-class App extends React.Component {
-  // constructor to set redirectToList to false initially
-  constructor(props) {
-    super(props);
-    this.state = {
-      redirectToList: false,
-    };
-  }
+function App() {
+  // const [setRedirectToList] = useState(false);
+  // const [details, setDetails] = useState([]);
+  const [name, setName] = useState('');
+  const [author, setAuthor] = useState('');
+  const [language, setLanguage] = useState('');
+  const [genre, setGenre] = useState('');
 
-  state = {
-    details: [],
-    name: "",
-    author: "",
-    language: "",
-    genre: "",
-  };
+  const navigate = useNavigate();
+  const location = useLocation();
 
-  handleInput = (e) => {
-    this.setState({
-      [e.target.name]: e.target.value,
-    });
+  const handleInput = (e) => {
+    const { name, value } = e.target;
+
+    if (name === 'name') setName(value);
+    if (name === 'author') setAuthor(value);
+    if (name === 'language') setLanguage(value);
+    if (name === 'genre') setGenre(value);
   };
 
   // Post the books data to the backend
-  handleSubmit = (e) => {
+  const handleSubmit = (e) => {
     e.preventDefault();
 
     axios.post('/api/books/', {
-      headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNzM2NTc5NjMzLCJpYXQiOjE3MzY1NzkzMzMsImp0aSI6ImIyMzAyMjQzMmU1MDQzMjJiYWYxZDFkMGE4N2E2Mjc2IiwidXNlcl9pZCI6MX0.DfatMUf7qBnnDGhp0_3AUWGII0c9pTrReMLJ_suY3Tw`,
-      },
-      name: this.state.name,
-      author: this.state.author,
-      language: this.state.language,
-      genre: this.state.genre,
+      name,
+      author,
+      language,
+      genre,
     })
       .then((res) => {
-        this.setState({
-          name: '',
-          author: '',
-          language: '',
-          genre: '',
-        });
+        setName('');
+        setAuthor('');
+        setLanguage('');
+        setGenre('');
       })
       .catch((err) => console.log(err));
-  }
-
-  handleRedirect = () => {
-    this.setState({ redirectToList: true });
-    //console.log('working fine')
   };
 
+  const handleRedirect = () => {
+    //setRedirectToList(true);
+    navigate('/booklist');
+  }
 
-  // Navigate to Book collection page
-  // FIXME: Collection must be displayed immediately after going to /booklist page
-  render() {
-    if (this.state.redirectToList) {
-      return <Navigate to="/booklist" />;
-    }
+  return (
+    <div className="container jumbotron ">
+      {location.pathname === '/' && (
+        <>
+          <form onSubmit={handleSubmit}>
 
-    return (
-        <div className="container jumbotron ">
-          <form onSubmit={this.handleSubmit}>
-            <div className="input-group mb-3">
+            <div className="input-group">
               <md-outlined-text-field type="text"
                 className="bookdata-textfield"
-                placeholder="Name of the Book"
+                label="Name of the Book"
                 aria-describedby="basic-addon1"
-                value={this.state.name} name="name"
-                onChange={this.handleInput} />
+                value={name} name="name"
+                onChange={handleInput} />
+            </div>
+            <div className="input-group">
+              <md-outlined-text-field type='text'
+                className="bookdata-textfield"
+                label="Who wrote this?"
+                value={author} name="author"
+                onChange={handleInput}>
+              </md-outlined-text-field>
+
+              <md-outlined-text-field type='text'
+                className="bookdata-textfield"
+                label="In what language?"
+                value={language} name="language"
+                onChange={handleInput}>
+              </md-outlined-text-field>
+
+              <md-outlined-text-field type='text'
+                className="bookdata-textfield"
+                label="What's this book about?"
+                value={genre} name="genre"
+                onChange={handleInput}>
+              </md-outlined-text-field>
             </div>
 
-            <div className="input-group mb-3">
-              <md-outlined-text-field type='text'
-                className="bookdata-textfield"
-                placeholder="Who wrote this?"
-                value={this.state.author} name="author"
-                onChange={this.handleInput}>
-              </md-outlined-text-field>
-
-              <md-outlined-text-field type='text'
-                className="bookdata-textfield"
-                placeholder="In what language?"
-                value={this.state.language} name="language"
-                onChange={this.handleInput}>
-              </md-outlined-text-field>
-
-              <md-outlined-text-field type='text'
-                className="bookdata-textfield"
-                placeholder="What's this book about?"
-                value={this.state.language} name="language"
-                onChange={this.handleInput}>
-              </md-outlined-text-field>
-            </div>
-
-            <button type="submit" className="btn btn-primary mb-5">
+            <md-filled-button type="submit" className="submit-btn">
               Submit
-            </button>
+            </md-filled-button>
+
           </form>
 
           <div>
-            <button
-              onClick={ this.handleRedirect }
-              className='btn btn-primary'>
+            <md-filled-button
+              onClick={handleRedirect}
+              className='view-collection-btn'>
               View Collection
-            </button>
+            </md-filled-button>
           </div>
-        <Routes>
-          <Route path="/booklist" element={<BookList />} />
-        </Routes>
-        </div>
+        </>
+      )}
 
-    );
-  }
+      <Routes>
+        <Route path="/booklist" element={<BookList />} />
+      </Routes>
+    </div>
+
+  );
 }
 
 export default App;
