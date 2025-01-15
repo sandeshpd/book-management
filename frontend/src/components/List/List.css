@@ -1,0 +1,83 @@
+@import url('../../App.css');
+
+.material-symbols-rounded {
+    font-size: 2rem;
+    cursor: pointer;
+}
+
+.searchbox-container {
+    display: grid;
+    grid-template-columns: 70% 30%;
+    gap: 2em;
+}
+
+.sort-menu {
+    position: relative;
+    margin: auto;
+    align-content: center;
+}
+
+.searchbox,
+.sort-menu {
+    width: 100%;
+    margin-left: .5em;
+}
+
+.search-book-input {
+    width: 100%;
+    color: #000;
+}
+
+.search-icon {
+    color: inherit;
+}
+
+.close-text {
+    padding-right: .7em;
+}
+
+.main-card {
+    background-color: var(--container-background-color);
+    border-radius: 30px;
+    margin: 2em 0;
+}
+
+.card-body-section {
+    padding: 1.2em;
+}
+
+.bookdata-actions {
+    display: flex;
+    float: right;
+    gap: 1em;
+}
+
+.edit-btn {
+    background-color: inherit;
+    border: none;
+    color: #282c34;
+    width: 48px;
+    height: 48px;
+    padding-top: .5rem;
+}
+
+.edit-btn:hover {
+    background-color:rgb(102, 146, 187);
+    border-radius: 50%;
+}
+
+.delete-btn {
+    background-color: inherit;
+    border: none;
+    color: #282c34;
+    width: 48px;
+    height: 48px;
+    padding-top: .5rem;
+}
+
+.delete-btn:hover {
+    background-color:rgb(102, 146, 187);
+    border-radius: 50%;
+}
+
+
