@@ -4,8 +4,10 @@ import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
-import '@material/web/textfield/outlined-text-field'
-import '@material/web/button/filled-button'
+import '@material/web/textfield/outlined-text-field';
+import '@material/web/button/filled-button';
+import '@material/web/dialog/dialog';
+import '@material/web/icon/icon';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
