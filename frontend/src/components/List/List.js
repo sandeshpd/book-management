@@ -97,8 +97,7 @@ function BookList() {
                     backgroundColor: "#000000",
                     height: 1,
                     borderColor: "#000000",
-                }}
-            />
+                }}/>
 
             {details.map((book) => (
                 <div key={book.id}>
@@ -137,13 +136,12 @@ function BookList() {
                 </div>
             ))}
             {isDialogOpen && selectedBook ? (
-                <div className='dialog-main-container'>
                     <EditDialog
                         book={selectedBook}
                         onClose={closeEditingDialog}
                         onSave={updateBook}
                     />
-                </div>
+                
             ) : (
                 <></>
             )}
