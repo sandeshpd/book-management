@@ -6,9 +6,9 @@ Following are the functionalities this web app currently offers:
 * Adding Books
 * Deleting Books
 * Editing Book data
+* Searching Books
 
 Following are the features that are currently in development and will come in action soon:
-* Searching Books
 * Filtering Books on the basis of language, genre
 * Improved User Interface
 
