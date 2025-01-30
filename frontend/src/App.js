@@ -6,7 +6,7 @@ import axios from 'axios';
 import BookList from './components/List/List';
 import { Routes, Route, useNavigate, useLocation } from 'react-router-dom';
 
-function App() {
+export default function App() {
   // const [setRedirectToList] = useState(false);
   // const [details, setDetails] = useState([]);
   const [name, setName] = useState('');
@@ -110,5 +110,3 @@ function App() {
 
   );
 }
-
-export default App;
