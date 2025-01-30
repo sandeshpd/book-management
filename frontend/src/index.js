@@ -8,6 +8,10 @@ import '@material/web/textfield/outlined-text-field';
 import '@material/web/button/filled-button';
 import '@material/web/dialog/dialog';
 import '@material/web/icon/icon';
+import '@material/web/menu/menu';
+import '@material/web/menu/menu-item';
+import '@material/web/menu/sub-menu';
+import '@material/web/divider/divider'
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
