@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import './Dialog.css';
 // import axios from "axios";
 
-const EditDialog = ({ book, onClose, onSave }) => {
+export default function EditDialog (book, onClose, onSave) {
   const [editedBook, setEditedBook] = useState(book);
 
   const handleInputChange = (e) => {
@@ -79,5 +79,3 @@ const EditDialog = ({ book, onClose, onSave }) => {
     </div>
   );
 };
-
-export default EditDialog;
